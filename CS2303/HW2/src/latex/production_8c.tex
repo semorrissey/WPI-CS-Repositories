@@ -1,0 +1,275 @@
+\section{production.\+c File Reference}
+\label{production_8c}\index{production.\+c@{production.\+c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}production.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ production} (int argc, char $\ast$argv[$\,$])
+\item 
+void \textbf{ Play\+One} (unsigned int nr, unsigned int nc, char $\ast$Old, char $\ast$New)
+\item 
+void \textbf{ usage} (void)
+\item 
+char \textbf{ get\+Letter} (int row, int col, int n\+Cols, char $\ast$Old)
+\item 
+int \textbf{ How\+Many\+Neighbors} (int row, int col, int n\+Rows, int n\+Cols, char $\ast$Old)
+\item 
+void \textbf{ read\+File\+Into\+Array} (int n\+Rows, int n\+Cols, int how\+Many\+Lines\+In\+File, int maximum\+Width, char $\ast$ar\+\_\+p, F\+I\+LE $\ast$fp)
+\item 
+int \textbf{ generate} (int gens, int n\+Rows, int n\+Cols, char $\ast$old\+\_\+p, char $\ast$new\+\_\+p, char $\ast$other\+\_\+p, char print, char pause)
+\item 
+bool \textbf{ anyX} (char $\ast$arr, int n\+Rows, int n\+Cols)
+\item 
+bool \textbf{ same\+Content} (char $\ast$one\+\_\+p, char $\ast$another\+\_\+p, int n\+Rows, int n\+Cols)
+\item 
+void \textbf{ print\+This} (int n\+Rows, int n\+Cols, char $\ast$old\+\_\+p)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{production_8c_a85f4ceb7eddb00ab9989daf800a74d3f}} 
+\index{production.\+c@{production.\+c}!anyX@{anyX}}
+\index{anyX@{anyX}!production.\+c@{production.\+c}}
+\subsubsection{any\+X()}
+{\footnotesize\ttfamily bool anyX (\begin{DoxyParamCaption}\item[{char $\ast$}]{arr,  }\item[{int}]{n\+Rows,  }\item[{int}]{n\+Cols }\end{DoxyParamCaption})}
+
+anyX checks whether the given array contains an x or not 
+\begin{DoxyParams}{Parameters}
+{\em char$\ast$} & arr, the array to be checked \\
+\hline
+{\em int} & n\+Rows, the number of rows in the array \\
+\hline
+{\em int} & n\+Cols, the number of Columns in the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool any, true/false if an x is present 
+\end{DoxyReturn}
+
+
+Referenced by generate(), and test\+Any\+X().
+
+\mbox{\label{production_8c_a7986ca2f4339fb9c9d88ac88dff0f34d}} 
+\index{production.\+c@{production.\+c}!generate@{generate}}
+\index{generate@{generate}!production.\+c@{production.\+c}}
+\subsubsection{generate()}
+{\footnotesize\ttfamily int generate (\begin{DoxyParamCaption}\item[{int}]{gens,  }\item[{int}]{n\+Rows,  }\item[{int}]{n\+Cols,  }\item[{char $\ast$}]{old\+\_\+p,  }\item[{char $\ast$}]{new\+\_\+p,  }\item[{char $\ast$}]{other\+\_\+p,  }\item[{char}]{print,  }\item[{char}]{pause }\end{DoxyParamCaption})}
+
+generate is the function that process a generation(s) under the rules of the game of life 
+\begin{DoxyParams}{Parameters}
+{\em int} & gens, the amount of generations to run \\
+\hline
+{\em int} & n\+Rows, the amount of rows in the array \\
+\hline
+{\em int} & n\+Cols, the amount of columns in the array \\
+\hline
+{\em char$\ast$} & old\+\_\+p, the array of the previous generation \\
+\hline
+{\em char$\ast$} & new\+\_\+p, the array of the next/current generation \\
+\hline
+{\em char$\ast$} & other\+\_\+p, the place holder array to swap pointers \\
+\hline
+{\em char} & print, y/n for whether or not the generations should be printed \\
+\hline
+{\em char} & pause, y/n for whether or not the program should pause between generations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int g, the amount of successful generations 
+\end{DoxyReturn}
+
+
+References any\+X(), Play\+One(), print\+This(), and same\+Content().
+
+
+
+Referenced by production(), test\+Blinker(), and test\+Glider().
+
+\mbox{\label{production_8c_adc602acdc7ecd4199ad2b30ac03feb52}} 
+\index{production.\+c@{production.\+c}!get\+Letter@{get\+Letter}}
+\index{get\+Letter@{get\+Letter}!production.\+c@{production.\+c}}
+\subsubsection{get\+Letter()}
+{\footnotesize\ttfamily char get\+Letter (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{n\+Cols,  }\item[{char $\ast$}]{Old }\end{DoxyParamCaption})}
+
+get\+Letter gets the specific letter at given row/column of the old array in a generation 
+\begin{DoxyParams}{Parameters}
+{\em int} & row, the row of the letter \\
+\hline
+{\em int} & col, the column of the letter \\
+\hline
+{\em int} & n\+Cols, the amount of Columns in the array \\
+\hline
+{\em char$\ast$} & Old, the array for the generation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char result, the letter at the given row/column of the old array 
+\end{DoxyReturn}
+
+
+Referenced by How\+Many\+Neighbors(), and Play\+One().
+
+\mbox{\label{production_8c_ab629e8f86e0183efbb59ef24422116cb}} 
+\index{production.\+c@{production.\+c}!How\+Many\+Neighbors@{How\+Many\+Neighbors}}
+\index{How\+Many\+Neighbors@{How\+Many\+Neighbors}!production.\+c@{production.\+c}}
+\subsubsection{How\+Many\+Neighbors()}
+{\footnotesize\ttfamily int How\+Many\+Neighbors (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{n\+Rows,  }\item[{int}]{n\+Cols,  }\item[{char $\ast$}]{Old }\end{DoxyParamCaption})}
+
+How\+Many\+Neighbors is a helper function for calculating the number of neighbors for each cell 
+\begin{DoxyParams}{Parameters}
+{\em int} & row, the row of the cell \\
+\hline
+{\em int} & col, the column of the cell \\
+\hline
+{\em int} & n\+Rows, the number of rows in the array \\
+\hline
+{\em int} & n\+Cols, the number of columns in the array \\
+\hline
+{\em char$\ast$} & Old, the array for the function to search through \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int result, the amount of neighbors for the given cell 
+\end{DoxyReturn}
+
+
+References get\+Letter().
+
+
+
+Referenced by Play\+One(), and test\+Count\+Neighbors().
+
+\mbox{\label{production_8c_af5b14d1dae61b5bee7bc0c3aa0dea79e}} 
+\index{production.\+c@{production.\+c}!Play\+One@{Play\+One}}
+\index{Play\+One@{Play\+One}!production.\+c@{production.\+c}}
+\subsubsection{Play\+One()}
+{\footnotesize\ttfamily void Play\+One (\begin{DoxyParamCaption}\item[{unsigned int}]{nr,  }\item[{unsigned int}]{nc,  }\item[{char $\ast$}]{Old,  }\item[{char $\ast$}]{New }\end{DoxyParamCaption})}
+
+Play\+One carries out one generation 
+\begin{DoxyParams}{Parameters}
+{\em unsigned} & int nr, the number of rows in the petri dish \\
+\hline
+{\em unsigned} & int nc, the number of columns in the petri dish \\
+\hline
+{\em char$\ast$} & Old, the location of the upper left of starting petri dish \\
+\hline
+{\em char$\ast$} & New, the location of the upper left of the ending petri dish \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+There is none, because results are in New array 
+\end{DoxyReturn}
+
+
+References get\+Letter(), and How\+Many\+Neighbors().
+
+
+
+Referenced by generate(), and test\+Play\+One().
+
+\mbox{\label{production_8c_ab73ab2c09c3d3d34fa5239433d488ff9}} 
+\index{production.\+c@{production.\+c}!print\+This@{print\+This}}
+\index{print\+This@{print\+This}!production.\+c@{production.\+c}}
+\subsubsection{print\+This()}
+{\footnotesize\ttfamily void print\+This (\begin{DoxyParamCaption}\item[{int}]{n\+Rows,  }\item[{int}]{n\+Cols,  }\item[{char $\ast$}]{old\+\_\+p }\end{DoxyParamCaption})}
+
+print\+This prints out the given array 
+\begin{DoxyParams}{Parameters}
+{\em int} & n\+Rows, the number of rows for the given array \\
+\hline
+{\em int} & n\+Cols, the number of columns for the given array \\
+\hline
+{\em char$\ast$} & old\+\_\+p, the array to be printed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+There is nothing to be returned, the function is of type void 
+\end{DoxyReturn}
+
+
+Referenced by generate(), and production().
+
+\mbox{\label{production_8c_a9f67b51c42a54745557e7a2c9c07c46f}} 
+\index{production.\+c@{production.\+c}!production@{production}}
+\index{production@{production}!production.\+c@{production.\+c}}
+\subsubsection{production()}
+{\footnotesize\ttfamily bool production (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv[$\,$] }\end{DoxyParamCaption})}
+
+
+
+References generate(), print\+This(), read\+File\+Into\+Array(), and usage().
+
+
+
+Referenced by main().
+
+\mbox{\label{production_8c_a0acda6eca9bfeb1059c53811d22b7996}} 
+\index{production.\+c@{production.\+c}!read\+File\+Into\+Array@{read\+File\+Into\+Array}}
+\index{read\+File\+Into\+Array@{read\+File\+Into\+Array}!production.\+c@{production.\+c}}
+\subsubsection{read\+File\+Into\+Array()}
+{\footnotesize\ttfamily void read\+File\+Into\+Array (\begin{DoxyParamCaption}\item[{int}]{n\+Rows,  }\item[{int}]{n\+Cols,  }\item[{int}]{how\+Many\+Lines\+In\+File,  }\item[{int}]{maximum\+Width,  }\item[{char $\ast$}]{ar\+\_\+p,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+read\+File\+Into\+Array transfers the Game Of Life state from a given file into an array using pointers 
+\begin{DoxyParams}{Parameters}
+{\em int} & n\+Rows, the number of rows for the given array \\
+\hline
+{\em int} & n\+Cols, the number of colunms for the given array \\
+\hline
+{\em int} & how\+Many\+Lines\+In\+File, the number of lines from the Game State file \\
+\hline
+{\em int} & maximum\+Width, the finite number of width for the game \\
+\hline
+{\em char$\ast$} & ar\+\_\+p, the array to be filled \\
+\hline
+{\em F\+I\+L\+E$\ast$} & fp, the file to be read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+There is nothing to return, the function is void 
+\end{DoxyReturn}
+
+
+Referenced by production(), test\+Blinker(), and test\+Glider().
+
+\mbox{\label{production_8c_a6bc14537b7dc8361ace9f0ee6aa49440}} 
+\index{production.\+c@{production.\+c}!same\+Content@{same\+Content}}
+\index{same\+Content@{same\+Content}!production.\+c@{production.\+c}}
+\subsubsection{same\+Content()}
+{\footnotesize\ttfamily bool same\+Content (\begin{DoxyParamCaption}\item[{char $\ast$}]{one\+\_\+p,  }\item[{char $\ast$}]{another\+\_\+p,  }\item[{int}]{n\+Rows,  }\item[{int}]{n\+Cols }\end{DoxyParamCaption})}
+
+same\+Content is a helper function that checks to see if the contents of each given array is the same 
+\begin{DoxyParams}{Parameters}
+{\em char$\ast$} & one\+\_\+p, the first array for comparison \\
+\hline
+{\em char$\ast$} & another\+\_\+p, the second array for comparison \\
+\hline
+{\em int} & n\+Rows, the number of rows for the two arrays (assuming they are the same) \\
+\hline
+{\em int} & n\+Cols, the number of columns for the two arrays (assuming they are the same) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool same, true/false if the content of both arrays are the same 
+\end{DoxyReturn}
+
+
+Referenced by generate(), and test\+Same\+Content().
+
+\mbox{\label{production_8c_ae8605e2b78cd4a81b6c6b5c30cb7366a}} 
+\index{production.\+c@{production.\+c}!usage@{usage}}
+\index{usage@{usage}!production.\+c@{production.\+c}}
+\subsubsection{usage()}
+{\footnotesize\ttfamily void usage (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Usage notifies the user of them of the correct command line input for the Game Of Life Program to work \begin{DoxyReturn}{Returns}
+print statement with correct format 
+\end{DoxyReturn}
+
+
+Referenced by production().
+

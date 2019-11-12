@@ -1,0 +1,273 @@
+\section{mystruct.\+h File Reference}
+\label{mystruct_8h}\index{mystruct.\+h@{mystruct.\+h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Employee}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ M\+A\+X\+\_\+\+N\+A\+ME}~(99)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Employee} $\ast$ \textbf{ make\+Employee} (int birth, int start, const char $\ast$name)
+\item 
+void \textbf{ print\+Employee} (struct \textbf{ Employee} $\ast$e)
+\item 
+char $\ast$ \textbf{ rand\+String} (void)
+\item 
+int \textbf{ rand\+Year} (void)
+\item 
+struct \textbf{ Employee} $\ast$ \textbf{ make\+Random\+Employee} (void)
+\item 
+struct \textbf{ Employee} $\ast$$\ast$ \textbf{ make\+Random\+Employees} (size\+\_\+t count)
+\item 
+void \textbf{ free\+Employees} (struct \textbf{ Employee} $\ast$$\ast$e, size\+\_\+t number)
+\item 
+void \textbf{ print\+Employees} (struct \textbf{ Employee} $\ast$$\ast$e, size\+\_\+t number)
+\item 
+struct \textbf{ Employee} $\ast$$\ast$ \textbf{ shallow\+Copy} (struct \textbf{ Employee} $\ast$$\ast$e, size\+\_\+t number)
+\item 
+struct \textbf{ Employee} $\ast$ \textbf{ copy\+Employee} (struct \textbf{ Employee} $\ast$e)
+\item 
+struct \textbf{ Employee} $\ast$$\ast$ \textbf{ deep\+Copy} (struct \textbf{ Employee} $\ast$$\ast$e, size\+\_\+t number)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{mystruct_8h_ac7c0207aa5a0e10d378be03b68041350}} 
+\index{mystruct.\+h@{mystruct.\+h}!M\+A\+X\+\_\+\+N\+A\+ME@{M\+A\+X\+\_\+\+N\+A\+ME}}
+\index{M\+A\+X\+\_\+\+N\+A\+ME@{M\+A\+X\+\_\+\+N\+A\+ME}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{M\+A\+X\+\_\+\+N\+A\+ME}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+N\+A\+ME~(99)}
+
+\doxyref{mystruct.\+h}{p.}{mystruct_8h} \begin{DoxyAuthor}{Author}
+Mike Ciaraldi Sample structs 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\label{mystruct_8h_a0f98e6a5ec411e4f147f63c4acb3f808}} 
+\index{mystruct.\+h@{mystruct.\+h}!copy\+Employee@{copy\+Employee}}
+\index{copy\+Employee@{copy\+Employee}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{copy\+Employee()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$ copy\+Employee (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$}]{e }\end{DoxyParamCaption})}
+
+Copy an employee structure 
+\begin{DoxyParams}{Parameters}
+{\em e} & \doxyref{Employee}{p.}{structEmployee} to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a duplicate, but different employee from the one passed in. 
+\end{DoxyReturn}
+
+
+References Employee\+::birth\+\_\+year, make\+Employee(), Employee\+::name, and Employee\+::start\+\_\+year.
+
+
+
+Referenced by deep\+Copy().
+
+\mbox{\label{mystruct_8h_a749af91978c2d5a1e82e977b0969fe71}} 
+\index{mystruct.\+h@{mystruct.\+h}!deep\+Copy@{deep\+Copy}}
+\index{deep\+Copy@{deep\+Copy}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{deep\+Copy()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$$\ast$ deep\+Copy (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$$\ast$}]{e,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Creates a deep copy of an employee array. A deep copy of an employee array is a new array of employee pointers to new \doxyref{Employee}{p.}{structEmployee} structures that contain the same values for their birth year, start year and name as the original array. 
+\begin{DoxyParams}{Parameters}
+{\em e} & \doxyref{Employee}{p.}{structEmployee} array to copy \\
+\hline
+{\em n} & Length of employee array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+deep copy of employee array 
+\end{DoxyReturn}
+
+
+References copy\+Employee().
+
+
+
+Referenced by test\+Deep\+Copy().
+
+\mbox{\label{mystruct_8h_af6022f2767f66b34d3c4cfb6ec4c5043}} 
+\index{mystruct.\+h@{mystruct.\+h}!free\+Employees@{free\+Employees}}
+\index{free\+Employees@{free\+Employees}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{free\+Employees()}
+{\footnotesize\ttfamily void free\+Employees (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$$\ast$}]{e,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Free an array of employees 
+\begin{DoxyParams}{Parameters}
+{\em e} & \doxyref{Employee}{p.}{structEmployee} array \\
+\hline
+{\em n} & Length of employee array \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by test\+Free\+Employees().
+
+\mbox{\label{mystruct_8h_a47ede2fced0227e67281196472097118}} 
+\index{mystruct.\+h@{mystruct.\+h}!make\+Employee@{make\+Employee}}
+\index{make\+Employee@{make\+Employee}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{make\+Employee()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$ make\+Employee (\begin{DoxyParamCaption}\item[{int}]{birth,  }\item[{int}]{start,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+\doxyref{mystruct.\+c}{p.}{mystruct_8c} \begin{DoxyAuthor}{Author}
+Mike Ciaraldi Allocates an \doxyref{Employee}{p.}{structEmployee} struct and fills in its fields 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em birth} & Year the employee was born. \\
+\hline
+{\em start} & Year the employee started with the company. \\
+\hline
+{\em name} & String containing employee\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to \doxyref{Employee}{p.}{structEmployee} struct, newly allocated from the heap. 
+\end{DoxyReturn}
+
+
+References Employee\+::birth\+\_\+year, Employee\+::name, and Employee\+::start\+\_\+year.
+
+
+
+Referenced by copy\+Employee(), make\+Random\+Employee(), test\+Make\+Employee(), test\+Rand\+String(), and test\+Rand\+Year().
+
+\mbox{\label{mystruct_8h_a406fdb7050873df495a5775f7419d53a}} 
+\index{mystruct.\+h@{mystruct.\+h}!make\+Random\+Employee@{make\+Random\+Employee}}
+\index{make\+Random\+Employee@{make\+Random\+Employee}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{make\+Random\+Employee()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$ make\+Random\+Employee (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Makes a random employee \begin{DoxyReturn}{Returns}
+Pointer to employee structure. 
+\end{DoxyReturn}
+
+
+References make\+Employee(), rand\+String(), and rand\+Year().
+
+
+
+Referenced by make\+Random\+Employees(), and test\+Make\+Random\+Employee().
+
+\mbox{\label{mystruct_8h_a83baf39d819e0ca8cbc476db82aedb5a}} 
+\index{mystruct.\+h@{mystruct.\+h}!make\+Random\+Employees@{make\+Random\+Employees}}
+\index{make\+Random\+Employees@{make\+Random\+Employees}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{make\+Random\+Employees()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$$\ast$ make\+Random\+Employees (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+Make an array of random employees defined by a given size parameter, count. 
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of employees to make \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the first element of the array of created random employees 
+\end{DoxyReturn}
+
+
+References make\+Random\+Employee().
+
+
+
+Referenced by test\+Deep\+Copy(), test\+Free\+Employees(), test\+Make\+Random\+Employees(), test\+Print\+Employees(), and test\+Shallow\+Copy().
+
+\mbox{\label{mystruct_8h_acff9aa9547982f1b0effbd6f302e325e}} 
+\index{mystruct.\+h@{mystruct.\+h}!print\+Employee@{print\+Employee}}
+\index{print\+Employee@{print\+Employee}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{print\+Employee()}
+{\footnotesize\ttfamily void print\+Employee (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$}]{e }\end{DoxyParamCaption})}
+
+Prints the information of the given employee object; their birth year, starting year and name 
+\begin{DoxyParams}{Parameters}
+{\em struct} & \doxyref{Employee}{p.}{structEmployee} $\ast$e, the employee whose information is to be printed to the console \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+References Employee\+::birth\+\_\+year, Employee\+::name, and Employee\+::start\+\_\+year.
+
+
+
+Referenced by print\+Employees(), test\+Make\+Employee(), test\+Make\+Random\+Employee(), test\+Make\+Random\+Employees(), test\+Print\+Employee(), test\+Rand\+String(), and test\+Rand\+Year().
+
+\mbox{\label{mystruct_8h_a1bcd95e47450297809c3a9f383550f18}} 
+\index{mystruct.\+h@{mystruct.\+h}!print\+Employees@{print\+Employees}}
+\index{print\+Employees@{print\+Employees}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{print\+Employees()}
+{\footnotesize\ttfamily void print\+Employees (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$$\ast$}]{e,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Print an employee array 
+\begin{DoxyParams}{Parameters}
+{\em e} & \doxyref{Employee}{p.}{structEmployee} array \\
+\hline
+{\em n} & Length of employee array \\
+\hline
+\end{DoxyParams}
+
+
+References print\+Employee().
+
+
+
+Referenced by test\+Deep\+Copy(), test\+Print\+Employees(), and test\+Shallow\+Copy().
+
+\mbox{\label{mystruct_8h_aa33341c8ca6baed0a7ef699e1d860947}} 
+\index{mystruct.\+h@{mystruct.\+h}!rand\+String@{rand\+String}}
+\index{rand\+String@{rand\+String}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{rand\+String()}
+{\footnotesize\ttfamily char$\ast$ rand\+String (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Creates a \char`\"{}first name\char`\"{} and \char`\"{} last name\char`\"{} of 10 random lowercase letters separated by a space, the last of which is terminated by a null-\/terminator. \begin{DoxyReturn}{Returns}
+22 character array as defined by the function description 
+\end{DoxyReturn}
+
+
+Referenced by make\+Random\+Employee(), test\+Rand\+String(), and test\+Rand\+Year().
+
+\mbox{\label{mystruct_8h_ad630063cbb37827c1d93bfdf79654f05}} 
+\index{mystruct.\+h@{mystruct.\+h}!rand\+Year@{rand\+Year}}
+\index{rand\+Year@{rand\+Year}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{rand\+Year()}
+{\footnotesize\ttfamily int rand\+Year (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Create an integer year between 1940 and 1999 \begin{DoxyReturn}{Returns}
+an integer between 1940 and 1999 
+\end{DoxyReturn}
+
+
+Referenced by make\+Random\+Employee(), test\+Rand\+String(), and test\+Rand\+Year().
+
+\mbox{\label{mystruct_8h_abd63be58a62930e5d30683bac1e69a9b}} 
+\index{mystruct.\+h@{mystruct.\+h}!shallow\+Copy@{shallow\+Copy}}
+\index{shallow\+Copy@{shallow\+Copy}!mystruct.\+h@{mystruct.\+h}}
+\subsubsection{shallow\+Copy()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$$\ast$ shallow\+Copy (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$$\ast$}]{e,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Creates a shallow copy of an employee array. A Shallow copy of an employee array is a new array of employee pointers that uses the same pointers from the original array. There is no structure duplication. 
+\begin{DoxyParams}{Parameters}
+{\em e} & \doxyref{Employee}{p.}{structEmployee} array \\
+\hline
+{\em number} & Length of employee array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+shallow copy of employee array 
+\end{DoxyReturn}
+
+
+Referenced by test\+Shallow\+Copy().
+
